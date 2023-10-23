@@ -1,6 +1,7 @@
 import {TSchedule} from "./schedule";
+import {Dayjs} from "dayjs";
 
 export type CalendarProps = {
-  date: Date;
+  date: Dayjs;
   schedules?: TSchedule[];
 }

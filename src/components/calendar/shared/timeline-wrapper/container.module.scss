@@ -1,16 +1,29 @@
 .wrapper{
-  display: flex;
-  flex-direction: column;
-  flex: 1;
   border-left: solid 1px black;
+  flex: 1;
+  position: relative;
   &:last-child{
     border-right: solid 1px black;
   }
-  .item{
-    border-top: solid 1px black;
-    flex: 1;
-    &:first-child{
-      border-top: solid 1px transparent;
+  .container{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    .item{
+      flex: 1;
+      position: relative;
+      &:not(:first-child):before{
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        border-top: solid 1px black;
+      }
     }
+  }
+  .schedule{
+    position: absolute;
+    background: rgba(0,0,0,0.5);
   }
 }
