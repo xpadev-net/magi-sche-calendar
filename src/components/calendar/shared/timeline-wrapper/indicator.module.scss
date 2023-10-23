@@ -1,10 +1,12 @@
+@import "../../variable";
+
 .wrapper{
   display: flex;
   flex-direction: column;
   height: 100%;
   width: 32px;
   .spacer{
-    height: 32px;
+    height: calc($date-height + $date-border);
   }
   .container{
     flex: 1;
@@ -26,7 +28,7 @@
         top: 0;
         right: 0;
         width: 4px;
-        border-top: solid 1px black;
+        border-top: solid 1px $border-color;
       }
       &:first-child{
         border: none;

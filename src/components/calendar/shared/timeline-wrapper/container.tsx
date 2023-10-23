@@ -2,9 +2,11 @@ import {FC} from "react";
 import Styles from "./container.module.scss";
 import {timelineRange} from "./const.ts";
 import {TSchedule} from "../../@types/schedule";
-import {Dayjs} from "dayjs";
-import {calcStyle, filterSchedules} from "../../utils/schedule.ts";
+import dayjs, {Dayjs} from "dayjs";
+import {filterSchedules} from "../../utils/schedule.ts";
 import {DayOfWeekName} from "../static/week.ts";
+import {CalendarTimelineCurrentTimeIndicator} from "./current-time-indicator.tsx";
+import {CalendarTimelineScheduleIndicator} from "./schedule-indicator.tsx";
 
 type Props = {
   schedules?: TSchedule[];
@@ -14,6 +16,7 @@ type Props = {
 const CalendarTimelineContainer:FC<Props> = ({date,schedules}) => {
   const timeSchedules = schedules &&filterSchedules(date,schedules).timeSchedule;
   const day = date.get("day");
+  const isSame = date.isSame(dayjs(),"day");
   return <>
     <div className={`${Styles.wrapper} ${(day === 0||day===6)&&Styles.weekend}`}>
       <div className={Styles.date}>
@@ -26,10 +29,9 @@ const CalendarTimelineContainer:FC<Props> = ({date,schedules}) => {
           })}
         </div>
         {timeSchedules?.map((sche)=>{
-          return <div key={sche.url} className={Styles.schedule} style={calcStyle(timeSchedules,sche)}>
-            {sche.name}
-          </div>
+          return <CalendarTimelineScheduleIndicator schedules={timeSchedules} schedule={sche}/>
         })}
+        {isSame && <CalendarTimelineCurrentTimeIndicator/>}
       </div>
     </div>
   </>
