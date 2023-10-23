@@ -12,8 +12,9 @@ type Props = {
 
 const CalendarTimelineContainer:FC<Props> = ({date,schedules}) => {
   const timeSchedules = schedules &&filterSchedules(date,schedules).timeSchedule;
+  const day = date.get("day");
   return <>
-    <div className={Styles.wrapper}>
+    <div className={`${Styles.wrapper} ${(day === 0||day===6)&&Styles.weekend}`}>
       <div className={Styles.container}>
         {timelineRange.map((_,i)=>{
           return <div className={Styles.item} key={i}></div>
