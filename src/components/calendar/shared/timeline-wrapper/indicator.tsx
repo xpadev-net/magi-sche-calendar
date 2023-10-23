@@ -5,7 +5,7 @@ import {timelineRange} from "./const.ts";
 const CalendarTimelineIndicator:FC = () => {
   return <div className={Styles.wrapper}>
     {timelineRange.map((_,index)=>{
-      return <div className={Styles.item}>
+      return <div className={Styles.item} key={index}>
         <span className={Styles.text}>
           {index}
         </span>

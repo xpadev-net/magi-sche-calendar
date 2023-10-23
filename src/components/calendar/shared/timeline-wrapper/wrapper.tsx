@@ -10,8 +10,8 @@ type Props = {
 const CalendarTimelineWrapper:FC<Props> = ({count}) => {
   return <div className={Styles.wrapper}>
     <CalendarTimelineIndicator/>
-    {[...Array(count)].map(()=>{
-      return <CalendarTimelineContainer/>
+    {[...Array(count)].map((_,index)=>{
+      return <CalendarTimelineContainer key={index}/>
     })}
   </div>
 }

@@ -4,8 +4,8 @@ import {timelineRange} from "./const.ts";
 
 const CalendarTimelineContainer:FC = () => {
   return <div className={Styles.wrapper}>
-    {timelineRange.map(()=>{
-      return <div className={Styles.item}></div>
+    {timelineRange.map((_,i)=>{
+      return <div className={Styles.item} key={i}></div>
     })}
   </div>
 }

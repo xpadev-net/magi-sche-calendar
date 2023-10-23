@@ -1,8 +1,9 @@
 import {FC} from "react";
-import {CalendarProps} from "../clendar";
+import {CalendarProps} from "../@types/clendar";
 
 const MonthlyCalendar:FC<CalendarProps> =() => {
-  return <div></div>
+  return <div>
+  </div>
 }
 
 export {MonthlyCalendar};
