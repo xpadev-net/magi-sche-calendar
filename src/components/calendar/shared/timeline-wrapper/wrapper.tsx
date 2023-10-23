@@ -4,6 +4,7 @@ import Styles from "./wrapper.module.scss"
 import {CalendarTimelineContainer} from "./container.tsx";
 import {TSchedule} from "../../@types/schedule";
 import {Dayjs} from "dayjs";
+import {CalendarDateIndicator} from "./date-indicator.tsx";
 
 type Props = {
   count: number;
@@ -13,10 +14,13 @@ type Props = {
 
 const CalendarTimelineWrapper:FC<Props> = ({count, startDate, schedules}) => {
   return <div className={Styles.wrapper}>
-    <CalendarTimelineIndicator/>
-    {[...Array(count)].map((_,index)=>{
-      return <CalendarTimelineContainer key={index} date={startDate.add(index,"day")} schedules={schedules}/>
-    })}
+    <CalendarDateIndicator count={count} startDate={startDate}/>
+    <div className={Styles.container}>
+      <CalendarTimelineIndicator/>
+      {[...Array(count)].map((_,index)=>{
+        return <CalendarTimelineContainer key={index} date={startDate.add(index,"day")} schedules={schedules}/>
+      })}
+    </div>
   </div>
 }
 

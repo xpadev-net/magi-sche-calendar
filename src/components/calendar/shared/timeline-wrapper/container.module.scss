@@ -2,9 +2,6 @@
   border-left: solid 1px black;
   flex: 1;
   position: relative;
-  &:last-child{
-    border-right: solid 1px black;
-  }
   .container{
     display: flex;
     flex-direction: column;

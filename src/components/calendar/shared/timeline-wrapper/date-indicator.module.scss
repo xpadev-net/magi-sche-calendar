@@ -1,0 +1,13 @@
+.wrapper{
+  display: flex;
+  flex-direction: row;
+
+  .spacer{
+    width: 32px;
+  }
+  .item{
+    flex:1;
+    border-left: solid 1px;
+    text-align: center;
+  }
+}
