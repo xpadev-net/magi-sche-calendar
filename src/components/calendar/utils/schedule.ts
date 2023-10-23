@@ -38,12 +38,12 @@ const calcStyle = (_schedules: TTimeSchedule[],schedule: TTimeSchedule) => {
       count ++;
     }
   }
-  console.log(schedule,index,count)
   return {
     top: `${startTime / daySeconds * 100}%`,
     height: `${duration / daySeconds * 100}%`,
     width: `${100/count}%`,
-    left: `${100*index/count}%`
+    left: `${100*index/count}%`,
+    backgroundColor: `${schedule.color}`,
   }
 }
 

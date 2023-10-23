@@ -10,6 +10,7 @@ export type TTimeSchedule = {
   startDate:null;
   endDate: null;
   isAllDay: false;
+  color: string;
 }
 
 export type TDateSchedule = {
@@ -21,4 +22,5 @@ export type TDateSchedule = {
   startTime: null;
   endTime: null;
   isAllDay: true;
+  color: string;
 }

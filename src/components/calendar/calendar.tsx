@@ -2,7 +2,7 @@ import {FC} from "react";
 import {DailyCalendar} from "./daily";
 import {WeeklyCalendar} from "./weekly";
 import {MonthlyCalendar} from "./monthly";
-import {CalendarProps} from "../@types/clendar";
+import {CalendarProps} from "./@types/clendar";
 
 type Props = {
   type: "daily"|"weekly"|"monthly"
