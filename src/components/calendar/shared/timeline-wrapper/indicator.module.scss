@@ -1,0 +1,31 @@
+.wrapper{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 32px;
+  .item{
+    flex: 1;
+    position: relative;
+    .text{
+      position: absolute;
+      top: 0;
+      transform: translateY(-50%);
+      left: 0;
+      width: 100%;
+      text-align: center;
+    }
+    .border{
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 4px;
+      border-top: solid 1px black;
+    }
+    &:first-child{
+      border: none;
+      .text,.border{
+        display: none;
+      }
+    }
+  }
+}

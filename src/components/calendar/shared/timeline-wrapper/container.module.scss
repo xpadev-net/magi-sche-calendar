@@ -1,0 +1,16 @@
+.wrapper{
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  border-left: solid 1px black;
+  &:last-child{
+    border-right: solid 1px black;
+  }
+  .item{
+    border-top: solid 1px black;
+    flex: 1;
+    &:first-child{
+      border-top: solid 1px transparent;
+    }
+  }
+}
