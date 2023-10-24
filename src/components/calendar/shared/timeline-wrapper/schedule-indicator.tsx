@@ -11,6 +11,10 @@ type Props = {
 const CalendarTimelineScheduleIndicator:FC<Props> = ({schedule,schedules}) => {
   return <div key={schedule.url} className={Styles.wrapper} style={calcStyle(schedules,schedule)}>
     {schedule.name}
+
+    <div className={Styles.metadata}>
+      <a target={"_blank"} href={schedule.url}>リンク</a>
+    </div>
   </div>
 }
 
