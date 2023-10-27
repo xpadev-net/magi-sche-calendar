@@ -8,6 +8,7 @@ import {DayOfWeekName} from "../static/week.ts";
 import {CalendarTimelineCurrentTimeIndicator} from "./current-time-indicator.tsx";
 import {CalendarTimelineScheduleIndicator} from "./schedule-indicator.tsx";
 import {SelectingDateContext} from "./context.tsx";
+import {CalendarTimelineSelectingIndicator} from "./selecting-indicator.tsx";
 
 type Props = {
   schedules?: TSchedule[];
@@ -28,9 +29,10 @@ const CalendarTimelineWrapper:FC<Props> = ({date,schedules}) => {
 
 const CalendarTimelineContainer:FC<Props> = ({date,schedules}) => {
   const timeSchedules = schedules &&filterSchedules(date,schedules).timeSchedule;
-  const isSame = date.isSame(dayjs(),"day");
+  const isToday = date.isSame(dayjs(),"day");
   const ref = useRef<HTMLDivElement>(null);
   const context = useContext(SelectingDateContext);
+  const isSelectionStart = date.isSame(context?.selectingDate?.pos1,"day");
 
   const getDate = (e:MouseEvent<HTMLDivElement>) => {
     const rect = ref.current?.getBoundingClientRect();
@@ -69,7 +71,8 @@ const CalendarTimelineContainer:FC<Props> = ({date,schedules}) => {
     {timeSchedules?.map((sche)=>{
       return <CalendarTimelineScheduleIndicator schedules={timeSchedules} schedule={sche}/>
     })}
-    {isSame && <CalendarTimelineCurrentTimeIndicator/>}
+    {isToday && <CalendarTimelineCurrentTimeIndicator/>}
+    {isSelectionStart && <CalendarTimelineSelectingIndicator/>}
   </div>
 }
 
