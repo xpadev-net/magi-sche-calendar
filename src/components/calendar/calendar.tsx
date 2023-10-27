@@ -5,7 +5,7 @@ import {MonthlyCalendar} from "./monthly";
 import {CalendarProps} from "./@types/clendar";
 
 type Props = {
-  type: "daily"|"weekly"|"monthly"
+  type: "daily"|"weekly"|"monthly";
 } & CalendarProps
 
 const Calendar:FC<Props> = ({type,...props}) => {
