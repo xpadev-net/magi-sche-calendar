@@ -6,7 +6,7 @@
   height: 100%;
   width: 32px;
   .spacer{
-    height: calc($date-height + $date-border);
+    height: calc($date-height);
   }
   .container{
     flex: 1;
