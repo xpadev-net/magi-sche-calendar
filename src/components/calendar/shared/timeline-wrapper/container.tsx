@@ -39,7 +39,7 @@ const CalendarTimelineContainer:FC<Props> = ({date,schedules}) => {
     if(!rect) return;
     const x = (e.clientY - rect.top) / rect.height;
     const hour = Math.floor(x * 24);
-    const minute = Math.floor((x * 24 - hour) * 60);
+    const minute = Math.floor((x * 24 - hour) * 2)*30;
     return date.set("hour",hour).set("minute",minute).set("second", 0).set("millisecond", 0);
   }
 
